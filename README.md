@@ -1,19 +1,7 @@
 # rubricaWPF
 ## Descrizione 
 Questo programma scritto in WPF simula e gestisce una rubrica, con una capacità massima 'MAX' Contatti. I dati che vengono visualizzati sono: Nome,Cognome,Numero di telefono, Email.
-## Classe "Contatto"
 
-### Attributi
-Attributi utilizzati:
-* _PK
-* _nome
-* _numero
-
-### Metodi
-
-## Main
-
-## XAML
 
 ## File esterni
 Per la scrittura delle righe, viene utilizzato un file esterno: "Dati.csv". Da questo file il codice va a leggere le righe, la riga vuota è definita dal colore rosso come sfondo.
