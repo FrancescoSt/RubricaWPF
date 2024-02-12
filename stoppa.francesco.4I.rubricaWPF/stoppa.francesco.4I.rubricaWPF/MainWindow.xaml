@@ -17,9 +17,14 @@
 
         <!--Colonna di destra-->
         <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
             </Grid.RowDefinitions>
 
@@ -31,14 +36,13 @@
                 <Button Width="90" Height="35" Margin="5">P3</Button>
                 <Button Width="90" Height="35" Margin="5">P4</Button>
             </StackPanel>
-            
-            <DataGrid 
+
+            <DataGrid>
                 x:Name="dgPersone" 
                 Grid.Column="1"  
                 LoadingRow="dgDati_LoadingRow"
-                SelectionChanged="dgDati_SelectionChanged"
+               
                 >
-                
             </DataGrid>
             <TextBlock x:Name="StatusBar" Grid.Row="2">Status bar</TextBlock>
             
@@ -49,6 +53,7 @@
             <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
             <Rectangle Fill="DarkGreen" Grid.Row="1"></Rectangle>
@@ -56,6 +61,6 @@
             
 
         </Grid>
-        
+        <!--SelectionChanged="dgDati_SelectionChanged"-->
     </Grid>
 </Window>

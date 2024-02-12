@@ -51,6 +51,11 @@ namespace stoppa.francesco._4I.rubricaWPF
         {
             string[] campi = riga.Split( ';' );
 
+            if (campi.Count() != 3)
+            {
+                throw new Exception("Le righe devono essere di tre colonne");
+            }
+
             //da stringa a intero
             int id = 0;
             int.TryParse(campi[0], out id);
@@ -68,6 +73,7 @@ namespace stoppa.francesco._4I.rubricaWPF
            
 
         }
+
 
         /*public (int numero, string nome, string cognome)
         {

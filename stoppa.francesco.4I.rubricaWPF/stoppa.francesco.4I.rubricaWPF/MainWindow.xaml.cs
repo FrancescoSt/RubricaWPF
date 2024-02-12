@@ -24,6 +24,7 @@ namespace stoppa.francesco._4I.rubricaWPF
     {
         List<Persona> Persone = new List<Persona>();
         List<Contatto> Contatti = new List<Contatto>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,19 +43,32 @@ namespace stoppa.francesco._4I.rubricaWPF
                     Persona p = new Persona(riga);
                     Persone.Add(p);
 
-                    dgContatti.ItemsSource = Contatti;
+                    dgPersone.ItemsSource = Persone;
+
+                    StatusBar.Text = $"Ho letto dal file {Persone.Count} persone e {Contatti.Count} contatti";
+
+                    StreamReader ts = new StreamReader("Contatti.csv");
+                    sr.ReadLine();
+
+                    while (!sr.EndOfStream)
+                    {
+                        string Riga = ts.ReadLine();
+                        Contatto s = new Contatto(riga);
+                        Contatti.Add(s);
+
+                        dgContatti.ItemsSource = Contatti;
+
+
+                        
+                    }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+                MessageBox.Show($"{ex.Message}");
             }
         }
             
-            
-
-        
-
         private void dgDati_LoadingRow(object sender, System.Windows.Controls.DataGridRowEventArgs e)
         {
             Contatto contatto = e.Row.DataContext as Contatto;
@@ -66,12 +80,25 @@ namespace stoppa.francesco._4I.rubricaWPF
             }
 
         }
+        /*
+    //Trasformazione da object a Contatto
+    Persona p = e.AddedItems[0] as Persona;
+    StatusBar.Text = $"{p.Cognome}";
+
+    List<Contatto> ContattiFiiltrati = new List<Contatto>();
+    foreach(var item in Contatti)
+    {
+        if(item.idPersona == p.idPersona) 
+        {
+            ContattiFiiltrati.Add(item);
+
+            dgContatti.ItemsSource = ContattiFiiltrati;
+        }
+    }
+
+    */
 
         //sender serve per capire chi ha scatenato l'evento
-        private void dgDati_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Trasformazione da object a Contatto
-            Persona p = e.AddedItems[0] as Persona;
-        }
+      
     }
 }
