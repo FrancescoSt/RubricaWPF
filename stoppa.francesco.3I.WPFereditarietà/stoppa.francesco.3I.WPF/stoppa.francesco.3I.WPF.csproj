@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>stoppa.francesco._3I.WPF</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+	<Grid>
+
+		<Grid.RowDefinitions>
+			<RowDefinition height="100"></RowDefinition>
+			<RowDefinition height="100"></RowDefinition>
+			<Rowdefinition></Rowdefinition>
+		</Grid.RowDefinitions>
+		
+		<Grid.ColumnDefinition>
+		<ColumnDefinition></ColumnDefinition>
+		<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinition>
+		
+		<Button Grid.Row="0" Grid.Column="0" Margin="10,20">Ciao</Button>
+		<Button Grid.Row="0" Grid.Column="0">Miao</Button>
+		
+	</Grid>
+
+</Project>
