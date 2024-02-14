@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,7 +10,7 @@ using System.Windows;
 namespace stoppa.francesco._4I.rubricaWPF
 {
     public enum TipoContatto { nessuno, Email, Telefono, Web, Instagram, Facebook }
-    internal class Contatto { 
+    public class Contatto { 
     
         public int idPersona { get; set; }
         public TipoContatto Tipo { get; set; }
@@ -74,12 +75,26 @@ namespace stoppa.francesco._4I.rubricaWPF
 
         }
 
+    public class Contatti : List<Contatti>
+    {
+        public Contatti() { }
 
-        /*public (int numero, string nome, string cognome)
+        public Contatti(string nomeFile)
         {
-        this.numero = numero;
+            StreamReader ts = new StreamReader("Contatti.csv");
+            ts.ReadLine();
+
+            while (!ts.EndOfStream)
+            {
+                base.Add(new Contatti(ts.ReadLine()));
+
+                //dgContatti.ItemsSource = Contatti;
+            }
         }
-        */
+    }
+
+
+     
     }
 
 

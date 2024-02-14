@@ -37,12 +37,11 @@
                 <Button Width="90" Height="35" Margin="5">P4</Button>
             </StackPanel>
 
-            <DataGrid>
-                x:Name="dgPersone" 
+            <DataGrid x:Name="dgPersone" 
                 Grid.Column="1"  
                 LoadingRow="dgDati_LoadingRow"
-               
-                >
+                      SelectionChanged="dgPersone_SelectionChanged"
+                      >
             </DataGrid>
             <TextBlock x:Name="StatusBar" Grid.Row="2">Status bar</TextBlock>
             

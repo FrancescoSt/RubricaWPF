@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
 
 namespace stoppa.francesco._4I.rubricaWPF
 {
@@ -10,7 +12,7 @@ namespace stoppa.francesco._4I.rubricaWPF
     {
         public int idPersona { get; set; }
         public TipoContatto Tipo { get; set; }
-        public string Valore { get; set; }
+        public string Nome { get; set; }
         public object Cognome { get; internal set; }
 
         public Persona(string riga)
@@ -27,7 +29,28 @@ namespace stoppa.francesco._4I.rubricaWPF
             int.TryParse(campi[0], out id);
             idPersona = id;
 
-            this.Valore = campi[2];
+            this.Nome = campi[1];
+            this.Cognome = campi[2];
+
+        }
+    }
+
+    public class Persone : List<Persona>
+    {
+        public Persone() { }
+
+        public Persone(string nomeFile)
+        {
+            StreamReader sr = new StreamReader("Persone.csv");
+            sr.ReadLine();
+
+            while (!sr.EndOfStream)
+            {
+                base.Add(new Persona(sr.ReadLine()));
+
+                sr.Close();
+            }
+
 
         }
     }

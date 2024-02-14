@@ -22,8 +22,8 @@ namespace stoppa.francesco._4I.rubricaWPF
       /// </summary>
     public partial class MainWindow : Window
     {
-        List<Persona> Persone = new List<Persona>();
-        List<Contatto> Contatti = new List<Contatto>();
+        Contatti contatti;
+        Persone persone;
 
         public MainWindow()
         {
@@ -34,34 +34,13 @@ namespace stoppa.francesco._4I.rubricaWPF
         {
             try
             {
-                StreamReader sr = new StreamReader("Persone.csv");
-                sr.ReadLine();
+                persone = new Persone("Persone.csv");
+                dgPersone.ItemsSource = persone;
+                contatti = new Contatti("Contatti.csv");
 
-                while (!sr.EndOfStream)
-                {
-                    string riga = sr.ReadLine();
-                    Persona p = new Persona(riga);
-                    Persone.Add(p);
-
-                    dgPersone.ItemsSource = Persone;
-
-                    StatusBar.Text = $"Ho letto dal file {Persone.Count} persone e {Contatti.Count} contatti";
-
-                    StreamReader ts = new StreamReader("Contatti.csv");
-                    sr.ReadLine();
-
-                    while (!sr.EndOfStream)
-                    {
-                        string Riga = ts.ReadLine();
-                        Contatto s = new Contatto(riga);
-                        Contatti.Add(s);
-
-                        dgContatti.ItemsSource = Contatti;
-
-
-                        
-                    }
-                }
+                StatusBar.Text = $"Ho letto dal file " +
+                $"{persone.Count} persone " +
+                $"e {contatti.Count} contatti";
             }
             catch (Exception ex)
             {
@@ -71,8 +50,8 @@ namespace stoppa.francesco._4I.rubricaWPF
             
         private void dgDati_LoadingRow(object sender, System.Windows.Controls.DataGridRowEventArgs e)
         {
-            Contatto contatto = e.Row.DataContext as Contatto;
-            if (contatto != null && contatto.PK == 0) // Check if the contact is empty
+            Persona p= e.Row.DataContext as Persona;
+            if (p.idPersona == 1) // Check if the contact is empty
             {
                 e.Row.Background = Brushes.Red;
                 e.Row.Background = Brushes.White;
@@ -80,25 +59,25 @@ namespace stoppa.francesco._4I.rubricaWPF
             }
 
         }
-        /*
-    //Trasformazione da object a Contatto
-    Persona p = e.AddedItems[0] as Persona;
-    StatusBar.Text = $"{p.Cognome}";
-
-    List<Contatto> ContattiFiiltrati = new List<Contatto>();
-    foreach(var item in Contatti)
-    {
-        if(item.idPersona == p.idPersona) 
+        
+    
+        private void dgPersone_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ContattiFiiltrati.Add(item);
+            //Trasformazione da object a Contatto
+            Persona p = e.AddedItems[0] as Persona;
+            StatusBar.Text = $"{p.Cognome}";
 
-            dgContatti.ItemsSource = ContattiFiiltrati;
-        }
-    }
+            List<Contatto> ContattiFiiltrati = new List<Contatto>();
+            foreach (var item in contatti)
+            {
+                if (item.idPersona == p.idPersona)
+                {
+                    ContattiFiiltrati.Add(item);
 
-    */
-
-        //sender serve per capire chi ha scatenato l'evento
-      
+                    dgContatti.ItemsSource = ContattiFiiltrati;
+                     
+                }
+            }   
+        } 
     }
 }
