@@ -8,14 +8,50 @@
         Title="Rubrica" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" 
         Loaded="StoppaWindow_Loaded">
-    
-    <Grid>
+
+    <Grid HorizontalAlignment="Left" Width="800">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <!--Colonna di destra-->
+
+
+        <Button Height="20" Width="50" Background="Gray" Margin="0,0,350,414">P1</Button>
+        <Button Height="20" Width="50" Background="Gray" Margin="50,0,300,414">P2</Button>
+        <Button Height="20" Width="50" Background="Gray" Margin="100,0,250,414">P3</Button>
+        <Button Height="20" Width="50" Background="Gray" Margin="150,0,200,414">P4</Button>
+        <DataGrid x:Name="dgPersone" 
+                Grid.Column="1"  
+                LoadingRow="dgDati_LoadingRow"
+                      SelectionChanged="dgPersone_SelectionChanged"
+                      >
+        </DataGrid>
+        <TextBlock x:Name="StatusBar" Margin="0,415,0,0">Status bar</TextBlock>
+
+        <Rectangle Fill="LightGreen" Grid.Row="0" Grid.Column="1" Margin="0,0,0,217"></Rectangle>
+
+    </Grid>
+</Window>
+
+
+
+
+
+
+
+
+
+
+
+<!--<Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        -->
+<!--Colonna di destra-->
+<!--
         <Grid Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"></ColumnDefinition>
@@ -47,7 +83,9 @@
             
         </Grid>
 
-        <!--Colonna di sinistra-->
+        -->
+<!--Colonna di sinistra-->
+<!--
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -59,7 +97,5 @@
             <DataGrid x:Name="dgContatti" Grid.Row="1"></DataGrid>
             
 
-        </Grid>
-        <!--SelectionChanged="dgDati_SelectionChanged"-->
-    </Grid>
-</Window>
+        </Grid>-->
+<!--SelectionChanged="dgDati_SelectionChanged"-->
