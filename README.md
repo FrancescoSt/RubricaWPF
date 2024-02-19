@@ -1,6 +1,6 @@
 # rubricaWPF
 ## Descrizione 
-Questo programma scritto in WPF gestisce una rubrica, con una capacità massima 'MAX' Contatti. I dati che vengono visualizzati sono: Nome,Cognome,Numero di telefono, Email, Facebook, Instagram.
+Questo programma scritto in WPF gestisce una rubrica, con una capacità massima 'MAX' Contatti. I dati che vengono visualizzati sono: Nome,Cognome,Numero di telefono, Email, Facebook, Instagram. Tutti i dati vengono letti da due file esterni: "Persone.csv" e "Contatti.csv".
 
 ## File esterni
 Viene fatta la lettura dei contatti vengono utilizzati due file.
