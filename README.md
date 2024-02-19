@@ -1,16 +1,29 @@
 # rubricaWPF
 ## Descrizione 
-Questo programma scritto in WPF simula e gestisce una rubrica, con una capacità massima 'MAX' Contatti. I dati che vengono visualizzati sono: Nome,Cognome,Numero di telefono, Email.
-
+Questo programma scritto in WPF gestisce una rubrica, con una capacità massima 'MAX' Contatti. I dati che vengono visualizzati sono: Nome,Cognome,Numero di telefono, Email, Facebook, Instagram.
 
 ## File esterni
-Per la scrittura delle righe, viene utilizzato un file esterno: "Dati.csv". Da questo file il codice va a leggere le righe, la riga vuota è definita dal colore rosso come sfondo.
-Esempio righe:
+Viene fatta la lettura dei contatti vengono utilizzati due file.
+### Persone.csv
+In questo file, vengono caricati e copiati i seguneti campi inseriti: Nome, Cognome.
+Esempio:
 ``` c#
-Nome;Cognome;Telefono;Email
-Francesco;Stoppa;728678781;francescoadrian.stoppa@studenti.ittsrimini.edu.it
-Elettra;Tegon;234567891;elettra.tegon@studenti.ittsrimini.edu.it
-```
-Da questo esempio qua, ogni blocco della riga è data da un ';': quindi sarà: Nome|Cognome|Telefono|Mail (La divisione delle celle verrà ripetuto in ogni riga).
+0;Nome;Cognome;
+1;Francesco;Stoppa;
+2;Elettra;Tegon;
+3;Antonio;Vallone;
+``` 
+### Contatti.csv
+In questo file, vengono caricati e copiati i seguneti campi inseriti: idPersona,Tipo,Valore.
+Esempio:
+``` c#
+idPersona;Tipo;Valore;
+1;Email;francescoadrian.stoppa@studenti.ittsrimini.edu.it
+1;Telefono;123456789
+1;facebook;Francesco Stoppa
+2;Email;elettra.tegon@studenti.ittsrimini.edu.it
+2;telefono;123456789
+2;Web;www.elettrategon.it
+``` 
 
 
