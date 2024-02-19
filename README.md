@@ -6,7 +6,7 @@ Questo programma scritto in WPF gestisce una rubrica, con una capacità massima 
 Viene fatta la lettura dei contatti vengono utilizzati due file.
 ### Persone.csv
 In questo file, vengono caricati e copiati i seguneti campi inseriti: Nome, Cognome.
-Esempio:
+### Esempio:
 ``` c#
 0;Nome;Cognome;
 1;Francesco;Stoppa;
@@ -15,7 +15,7 @@ Esempio:
 ``` 
 ### Contatti.csv
 In questo file, vengono caricati e copiati i seguneti campi inseriti: idPersona,Tipo,Valore.
-Esempio:
+### Esempio:
 ``` c#
 idPersona;Tipo;Valore;
 1;Email;francescoadrian.stoppa@studenti.ittsrimini.edu.it
